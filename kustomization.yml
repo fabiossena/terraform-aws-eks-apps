@@ -1,0 +1,12 @@
+namePrefix: dvn-
+nameSuffix: -prod
+
+resources:
+  - deployment.yml
+  - service.yml
+
+images:
+  - name: 801528680042.dkr.ecr.us-east-1.amazonaws.com/app-frontend
+    newName: 801528680042.dkr.ecr.us-east-1.amazonaws.com/app-frontend
+    newTag: v1.0
+  
