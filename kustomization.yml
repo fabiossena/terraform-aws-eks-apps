@@ -2,8 +2,8 @@ namePrefix: dvn-
 nameSuffix: -prod
 
 resources:
-  - deployment.yml
-  - service.yml
+- deployment.yml
+- service.yml
 
 images:
   - name: 801528680042.dkr.ecr.us-east-1.amazonaws.com/production/fss-site-v2
