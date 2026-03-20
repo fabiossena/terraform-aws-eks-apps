@@ -6,7 +6,7 @@ resources:
   - service.yml
 
 images:
-  - name: 801528680042.dkr.ecr.us-east-1.amazonaws.com/app-frontend
-    newName: 801528680042.dkr.ecr.us-east-1.amazonaws.com/app-frontend
+  - name: 801528680042.dkr.ecr.us-east-1.amazonaws.com/production/fss-site-v2
+    newName: 801528680042.dkr.ecr.us-east-1.amazonaws.com/production/fss-site-v2
     newTag: v1.0
   
