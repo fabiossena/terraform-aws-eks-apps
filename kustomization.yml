@@ -12,4 +12,4 @@ resources:
 images:
 - name: 801528680042.dkr.ecr.us-east-1.amazonaws.com/production/fss-site-v2
   newName: 801528680042.dkr.ecr.us-east-1.amazonaws.com/production/fss-site-v2
-  newTag: fa466c9a6d1abc75fa426ff8b2bcd36acdb10872
+  newTag: a83a54ade2aa86f3424ccf2b7e6cea6c684b7c69
