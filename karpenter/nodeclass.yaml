@@ -5,15 +5,15 @@ metadata:
 spec:
   amiFamily: AL2023
 
-  role: KarpenterNodeRole-SEU_CLUSTER
+  role: $(CLUSTER_ROLE)
 
   subnetSelectorTerms:
     - tags:
-        karpenter.sh/discovery: SEU_CLUSTER
+        karpenter.sh/discovery: $(CLUSTER_NAME)
 
   securityGroupSelectorTerms:
     - tags:
-        karpenter.sh/discovery: SEU_CLUSTER
+        karpenter.sh/discovery: $(CLUSTER_NAME)
 
   tags:
-    karpenter.sh/discovery: SEU_CLUSTER
+    karpenter.sh/discovery: $(CLUSTER_NAME)

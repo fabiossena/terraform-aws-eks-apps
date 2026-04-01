@@ -1,3 +1,25 @@
 resources:
   - nodeclass.yaml
   - nodepool.yaml
+
+configMapGenerator:
+  - name: cluster-config
+    literals:
+      - CLUSTER_NAME=fss-march-eks-cluster
+      - CLUSTER_ROLE=fss-march-eks-cluster-role
+
+vars:
+  - name: CLUSTER_NAME
+    objref:
+      kind: ConfigMap
+      name: cluster-config
+      apiVersion: v1
+    fieldref:
+      fieldpath: data.CLUSTER_NAME
+  - name: CLUSTER_ROLE
+    objref:
+      kind: ConfigMap
+      name: cluster-config
+      apiVersion: v1
+    fieldref:
+      fieldpath: data.CLUSTER_ROLE
