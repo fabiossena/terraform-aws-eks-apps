@@ -6,22 +6,22 @@ metadata:
     argocd.argoproj.io/sync-wave: '0'
 spec:
   amiFamily: AL2023
-
   amiSelectorTerms:
     - name: "*"
       owners:
         - "amazon"
       tags: {}
-
-  role: "fss-march-eks-cluster-role"
-
+  role: "fss-march-eks-node-role"  # <-- Node Role para EC2s
   subnetSelectorTerms:
     - tags:
         Project: "fss-march"
-
   securityGroupSelectorTerms:
     - tags:
         karpenter.sh/discovery: "fss-march-eks-cluster"
-
+  metadataOptions:
+    httpEndpoint: enabled
+    httpProtocolIPv6: disabled
+    httpPutResponseHopLimit: 1
+    httpTokens: required
   tags:
     karpenter.sh/discovery: "fss-march-eks-cluster"
