@@ -2,20 +2,25 @@ apiVersion: karpenter.k8s.aws/v1
 kind: EC2NodeClass
 metadata:
   name: default
-  annotations:
-    argocd.argoproj.io/sync-wave: "0"
 spec:
-  amiFamily: AL2023
+  amiFamily: AL2023      # mantém se quiser que o Karpenter escolha automaticamente
 
-  role: "$(CLUSTER_ROLE)"
+  # 🟢 obrigatório na v1
+  amiSelectorTerms:
+    - name: "*"           # pega qualquer AMI dentro da família AL2023
+      owners:
+        - "amazon"        # ou o owner que você precisa
+      tags: {}            # se quiser filtrar por tags
+
+  role: fss-march-eks-cluster-role
 
   subnetSelectorTerms:
     - tags:
-        karpenter.sh/discovery: "$(CLUSTER_NAME)"
+        karpenter.sh/discovery: fss-march-eks-cluster
 
   securityGroupSelectorTerms:
     - tags:
-        karpenter.sh/discovery: "$(CLUSTER_NAME)"
+        karpenter.sh/discovery: fss-march-eks-cluster
 
   tags:
-    karpenter.sh/discovery: "$(CLUSTER_NAME)"
+    karpenter.sh/discovery: fss-march-eks-cluster
