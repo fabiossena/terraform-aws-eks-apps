@@ -11,17 +11,17 @@ spec:
       owners:
         - "amazon"
       tags: {}
-  role: "fss-march-eks-node-role"  # Node Role para EC2s
+  role: fss-march-eks-node-role  # Node Role do EC2
   subnetSelectorTerms:
     - tags:
-        Project: "fss-march"
+        Project: fss-march
   securityGroupSelectorTerms:
     - tags:
-        karpenter.sh/discovery: "fss-march-eks-cluster"
+        karpenter.sh/discovery: fss-march-eks-cluster
   metadataOptions:
     httpEndpoint: enabled
     httpProtocolIPv6: disabled
     httpPutResponseHopLimit: 1
     httpTokens: required
   tags:
-    karpenter.sh/discovery: "fss-march-eks-cluster"
+    karpenter.sh/discovery: fss-march-eks-cluster
