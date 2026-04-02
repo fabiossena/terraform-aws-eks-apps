@@ -5,24 +5,24 @@ metadata:
   annotations:
     argocd.argoproj.io/sync-wave: "0"
 spec:
-  amiFamily: AL2023      # mantém se quiser que o Karpenter escolha automaticamente
+  amiFamily: AL2023
 
-  # 🟢 obrigatório na v1
+  # Obrigatório no v1
   amiSelectorTerms:
-    - name: "*"           # pega qualquer AMI dentro da família AL2023
+    - name: "*"                 # pega qualquer AMI dentro da família AL2023
       owners:
-        - "amazon"        # ou o owner que você precisa
-      tags: {}            # se quiser filtrar por tags
+        - "amazon"              # AMIs oficiais da AWS
+      tags: {}
 
-  role: fss-march-eks-cluster-role
+  role: "fss-march-eks-cluster-role"
 
   subnetSelectorTerms:
     - tags:
-        karpenter.sh/discovery: fss-march-eks-cluster
+        karpenter.sh/discovery: "fss-march-eks-cluster"
 
   securityGroupSelectorTerms:
     - tags:
-        karpenter.sh/discovery: fss-march-eks-cluster
+        karpenter.sh/discovery: "fss-march-eks-cluster"
 
   tags:
-    karpenter.sh/discovery: fss-march-eks-cluster
+    karpenter.sh/discovery: "fss-march-eks-cluster"
