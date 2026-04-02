@@ -27,7 +27,17 @@ spec:
           values: ["amd64", "arm64"]
         - key: karpenter.sh/capacity-type
           operator: In
-          values: ["spot", "on-demand"]
-        - key: karpenter.k8s.aws/instance-category
+          values: ["on-demand"] # "spot", 
+        # - key: karpenter.k8s.aws/instance-category
+        #   operator: In
+        #   values: ["c", "m"]
+        # ABAIXO NOVO
+        - key: karpenter.k8s.aws/instance-family
           operator: In
-          values: ["c", "m"]
+          values: ["t2", "t3", "t4g"]  # Famílias Free Tier
+        - key: karpenter.k8s.aws/instance-size
+          operator: In
+          values: ["micro", "small"]  # Tamanhos Free Tier
+        - key: karpenter.k8s.aws/instance-generation
+          operator: Gt
+          values: ["2"]  # Gerações mais recentes
