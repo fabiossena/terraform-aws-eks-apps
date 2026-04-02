@@ -7,18 +7,11 @@ metadata:
 spec:
   amiFamily: AL2023
 
-  # Obrigatório no v1
-  amiSelectorTerms:
-    - name: "*"
-      owners:
-        - "amazon"
-      tags: {}
-
   role: "fss-march-eks-cluster-role"
 
   subnetSelectorTerms:
     - tags:
-        Project: "fss-march"
+        karpenter.sh/discovery: "fss-march-eks-cluster"
 
   securityGroupSelectorTerms:
     - tags:
