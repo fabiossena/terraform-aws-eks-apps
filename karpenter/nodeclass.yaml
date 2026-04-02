@@ -9,16 +9,16 @@ spec:
 
   # Obrigatório no v1
   amiSelectorTerms:
-    - name: "*"                 # pega qualquer AMI dentro da família AL2023
+    - name: "*"
       owners:
-        - "amazon"              # AMIs oficiais da AWS
+        - "amazon"
       tags: {}
 
   role: "fss-march-eks-cluster-role"
 
   subnetSelectorTerms:
     - tags:
-        karpenter.sh/discovery: "fss-march-eks-cluster"
+        Project: "fss-march"
 
   securityGroupSelectorTerms:
     - tags:
