@@ -5,8 +5,9 @@ metadata:
   annotations:
     argocd.argoproj.io/sync-wave: '0'
 spec:
+  #amiFamily: AL2023
   amiSelectorTerms:
-    - name: "al2023@latest"
+    - name: "*"
       owners:
         - "amazon"
       tags: {}
