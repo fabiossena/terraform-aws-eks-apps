@@ -8,18 +8,27 @@ configMapGenerator:
       - CLUSTER_NAME=fss-march-eks-cluster
       - CLUSTER_ROLE=fss-march-eks-cluster-role
 
-vars:
-  - name: CLUSTER_NAME
-    objref:
+replacements:
+  - source:
       kind: ConfigMap
       name: cluster-config
-      apiVersion: v1
-    fieldref:
-      fieldpath: data.CLUSTER_NAME
-  - name: CLUSTER_ROLE
-    objref:
+      fieldPath: data.CLUSTER_NAME
+    targets:
+      - select:
+          kind: EC2NodeClass
+          name: default
+        fieldPaths:
+          - spec.subnetSelectorTerms.0.tags.karpenter\.sh/discovery
+          - spec.securityGroupSelectorTerms.0.tags.karpenter\.sh/discovery
+          - spec.tags.karpenter\.sh/discovery
+
+  - source:
       kind: ConfigMap
       name: cluster-config
-      apiVersion: v1
-    fieldref:
-      fieldpath: data.CLUSTER_ROLE
+      fieldPath: data.CLUSTER_ROLE
+    targets:
+      - select:
+          kind: EC2NodeClass
+          name: default
+        fieldPaths:
+          - spec.role
