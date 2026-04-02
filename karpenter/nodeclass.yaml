@@ -3,15 +3,21 @@ kind: EC2NodeClass
 metadata:
   name: default
   annotations:
-    argocd.argoproj.io/sync-wave: "0"
+    argocd.argoproj.io/sync-wave: '0'
 spec:
   amiFamily: AL2023
+
+  amiSelectorTerms:
+    - name: "*"
+      owners:
+        - "amazon"
+      tags: {}
 
   role: "fss-march-eks-cluster-role"
 
   subnetSelectorTerms:
     - tags:
-        karpenter.sh/discovery: "fss-march-eks-cluster"
+        Project: "fss-march"
 
   securityGroupSelectorTerms:
     - tags:
