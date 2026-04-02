@@ -15,9 +15,9 @@ spec:
   subnetSelectorTerms:
     - tags:
         Project: fss-march
-  securityGroupSelectorTerms:
-    - tags:
-        karpenter.sh/discovery: fss-march-eks-cluster
+  # securityGroupSelectorTerms:
+  #   - tags:
+  #       karpenter.sh/discovery: fss-march-eks-cluster
   metadataOptions:
     httpEndpoint: enabled
     httpProtocolIPv6: disabled
