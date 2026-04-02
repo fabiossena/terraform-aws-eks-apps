@@ -5,13 +5,12 @@ metadata:
   annotations:
     argocd.argoproj.io/sync-wave: '0'
 spec:
-  amiFamily: AL2023
   amiSelectorTerms:
-    - name: "*"
+    - name: "al2023@latest"
       owners:
         - "amazon"
       tags: {}
-  role: fss-march-eks-node-role  # Node Role do EC2
+  role: fss-march-eks-node-role
   subnetSelectorTerms:
     - tags:
         Project: fss-march
