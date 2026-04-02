@@ -11,7 +11,7 @@ spec:
       owners:
         - "amazon"
       tags: {}
-  role: "fss-march-eks-node-role"  # <-- Node Role para EC2s
+  role: "fss-march-eks-node-role"  # Node Role para EC2s
   subnetSelectorTerms:
     - tags:
         Project: "fss-march"
